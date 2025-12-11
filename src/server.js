@@ -6,7 +6,7 @@ const connectMongo = require('./config/mongodb');
 const usersRouter = require('./routes/users'); 
 const cattlesRouter = require('./routes/cattles'); 
 const collarDataRouter = require('./routes/collarData');
-
+const geofencesRouter = require('./routes/geofences');
 const PORT = process.env.PORT || 3000;
 
 connectMongo();
@@ -32,6 +32,8 @@ app.use('/api/collar-data', collarDataRouter);
 
 app.use('/api/users', usersRouter);
 app.use('/api/cattles', cattlesRouter);
+app.use('/api/geofences', geofencesRouter);  // ⬅️ new line
+
 app.get('/', (req, res) => res.send('OK'));
 
 
